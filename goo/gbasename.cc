@@ -46,6 +46,10 @@
 #include <cstdlib>
 #include <cstring>
 
+#if !defined(__GLIBC__)
+#define basename(src) (strrchr(src,'/') ? strrchr(src,'/')+1 : src)
+#endif
+
 std::string gbasename(const char *filename)
 {
 #ifdef _MSC_VER
