@@ -627,10 +627,10 @@ target_include_directories(poppler PUBLIC poppler ${CMAKE_SOURCE_DIR} ${CMAKE_CU
 if (OpenJPEG_FOUND)
   # check if we can remove this when we depend on newer openjpeg versions, 2.5 seems fixed
   # target openjp2 may lack interface include directories
-  target_include_directories(poppler SYSTEM PRIVATE ${OPENJPEG_INCLUDE_DIRS})
+  target_include_directories(poppler  PRIVATE ${OPENJPEG_INCLUDE_DIRS})
 endif()
 if(USE_CMS)
-  target_include_directories(poppler SYSTEM PRIVATE ${LCMS2_INCLUDE_DIR})
+  target_include_directories(poppler  PRIVATE ${LCMS2_INCLUDE_DIR})
 endif()
 generate_export_header(poppler BASE_NAME poppler-private EXPORT_FILE_NAME "${CMAKE_CURRENT_BINARY_DIR}/poppler_private_export.h")
 set_target_properties(poppler PROPERTIES
